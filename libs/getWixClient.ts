@@ -1,6 +1,5 @@
 import { createClient, OAuthStrategy, TokenRole, Tokens } from "@wix/sdk";
 import { products, collections } from "@wix/stores";
-import { reviews } from "@wix/reviews";
 import { cookies } from "next/headers";
 import { currentCart } from "@wix/ecom";
 import { cache } from "react";
@@ -16,7 +15,6 @@ export const getWixClient = cache(() => {
   modules: {
    products,
    collections,
-   reviews,
    currentCart,
   },
   auth: OAuthStrategy({

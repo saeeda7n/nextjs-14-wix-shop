@@ -2,6 +2,7 @@ import { create } from "zustand";
 import { Cart } from "@wix/ecom_current-cart";
 import { WixClient } from "@/providers/wixClientProvider";
 import { toast } from "sonner";
+import { removeLineItemsFromCurrentCart } from "@/server/actions/cart";
 
 type CartStore = {
  isLoading: boolean;
@@ -13,7 +14,7 @@ type CartStore = {
   wixClient: WixClient,
   props: { productId: string; quantity: number; variantId?: string },
  ) => Promise<void>;
- removeItem: (wixClient: WixClient, itemId: string) => Promise<void>;
+ removeItem: (itemId: string) => Promise<void>;
  clearStore: () => void;
 };
 
@@ -67,13 +68,11 @@ export const useCartStore = create<CartStore>((set) => ({
    description: `${quantity} of ${latestProduct.productName?.original} added to your cart.`,
   });
  },
- removeItem: async (wixClient, itemId) => {
+ removeItem: async (itemId) => {
   set((state) => ({
    deletingIds: (state.deletingIds.push(itemId), state.deletingIds),
   }));
-  const { cart } = await wixClient.currentCart.removeLineItemsFromCurrentCart([
-   itemId,
-  ]);
+  const { cart } = await removeLineItemsFromCurrentCart(itemId);
   set((state) => {
    state.deletingIds.splice(state.deletingIds.indexOf(itemId), 1);
    return {

@@ -1,8 +1,8 @@
+import { Suspense } from "react";
 import { getWixClient } from "@/libs/getWixClient";
 import Slider from "@/components/slider";
 import ProductList from "@/components/productList";
 import CategoryList from "@/components/categoryList";
-import { Suspense } from "react";
 import { ProductListFallback } from "@/components/productListFallback";
 
 export default async function HomePage() {

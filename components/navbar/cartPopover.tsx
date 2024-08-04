@@ -94,8 +94,6 @@ function CartItem({ item, onRemove, isRemovePending }: CartItem) {
 function CartItems({ cart }: CartItemsProps) {
  const removeItem = useCartStore((state) => state.removeItem);
  const deletingIds = useCartStore((state) => state.deletingIds);
- const wix = useWix();
-
  return (
   <div className="mt-3">
    <div className="flex flex-col gap-2">
@@ -103,7 +101,7 @@ function CartItems({ cart }: CartItemsProps) {
      <CartItem
       item={cart}
       key={cart._id}
-      onRemove={(id) => removeItem(wix, id)}
+      onRemove={(id) => removeItem(id)}
       isRemovePending={deletingIds.includes(cart._id!)}
      />
     ))}

@@ -1,11 +1,11 @@
 "use client";
 import React, { useRef } from "react";
+import { Collection } from "@wix/stores_collections";
 import { useGSAP } from "@gsap/react";
-import gsap from "@/libs/gsap";
 import { useGesture } from "@use-gesture/react";
 import Image from "next/image";
 import Link from "next/link";
-import { Collection } from "@wix/stores_collections";
+import gsap from "@/libs/gsap";
 
 function CategoryCard({ category }: { category: Collection }) {
  return (
@@ -49,12 +49,6 @@ export function CategoryListClient({ categories }: Props) {
     if (!target.current) return;
     scroll(target.current.scrollLeft + x * 50 * dX * -1);
    },
-   // onWheel: ({ delta: [, y], event, direction: [, dY] }) => {
-   //  // event.preventDefault();
-   //  // if (target.current) {
-   //  //  scroll(target.current.scrollLeft + y * 5);
-   //  // }
-   // },
   },
 
   { target, eventOptions: { passive: false } },
