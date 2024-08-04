@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "title": "Winter Sale Collections",
+    "description": "Sale! Up to 30% off!",
+    "image": "https://images.pexels.com/photos/7026522/pexels-photo-7026522.jpeg",
+    "url": "/",
+    "className": "bg-gray-100/70 lg:bg-gray-100"
+  },
+  {
+    "id": 2,
+    "title": "Spring Sale Collections",
+    "description": "Sale! Up to 50% off!",
+    "image": "https://images.pexels.com/photos/4380970/pexels-photo-4380970.jpeg",
+    "url": "/",
+    "className": "bg-gray-200/70 lg:bg-gray-200"
+  },
+  {
+    "id": 3,
+    "title": "Summer Sale Collections",
+    "description": "Sale! Up to 70% off!",
+    "image": "https://images.pexels.com/photos/12678741/pexels-photo-12678741.jpeg",
+    "url": "/",
+    "className": "bg-sky-100/70 lg:bg-sky-50"
+  }
+]
