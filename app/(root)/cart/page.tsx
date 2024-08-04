@@ -27,7 +27,27 @@ const ViewCartPage = async () => {
   cart = null;
   estimatedTotals = null;
  }
- if (!cart || !estimatedTotals) return <div>Empty cart</div>;
+ if (!cart || (cart.lineItems?.length || 0) <= 0 || !estimatedTotals)
+  return (
+   <main className="min-h-[calc(100vh-32.1rem)] pt-10">
+    <div className="container flex flex-col items-center justify-center gap-8">
+     <Image
+      className="max-w-lg"
+      src={"/assets/images/illustrations/undraw_empty_cart_co35.svg"}
+      alt={"Empty cart"}
+      width={1400}
+      height={960}
+     />
+     <h4 className="text-xl font-medium">
+      Your cart is empty,
+      <Link href="/" className="ms-1 text-teal-600">
+       Back to shopping
+      </Link>
+      .
+     </h4>
+    </div>
+   </main>
+  );
  return (
   <main className="min-h-[calc(100vh-32.1rem)] pt-10">
    <div className="space-y-5">
